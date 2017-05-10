@@ -192,7 +192,7 @@ public abstract class WebSocketClient extends WebSocketAdapter implements Runnab
 
 	/**
 	 * Sends <var>text</var> to the connected websocket server.
-	 * 
+	 *
 	 * @param text
 	 *            The string which will be transmitted.
 	 */
@@ -202,7 +202,7 @@ public abstract class WebSocketClient extends WebSocketAdapter implements Runnab
 
 	/**
 	 * Sends binary <var> data</var> to the connected webSocket server.
-	 * 
+	 *
 	 * @param data
 	 *            The byte-Array of data to send to the WebSocket server.
 	 */
@@ -279,6 +279,7 @@ public abstract class WebSocketClient extends WebSocketAdapter implements Runnab
 		String host = uri.getHost() + ( port != WebSocket.DEFAULT_PORT ? ":" + port : "" );
 
 		HandshakeImpl1Client handshake = new HandshakeImpl1Client();
+		handshake.setScheme( uri.getScheme() );
 		handshake.setResourceDescriptor( path );
 		handshake.put( "Host", host );
 		if( headers != null ) {
@@ -519,7 +520,7 @@ public abstract class WebSocketClient extends WebSocketAdapter implements Runnab
 	public InetSocketAddress getRemoteSocketAddress() {
 		return engine.getRemoteSocketAddress();
 	}
-	
+
 	@Override
 	public String getResourceDescriptor() {
 		return uri.getPath();

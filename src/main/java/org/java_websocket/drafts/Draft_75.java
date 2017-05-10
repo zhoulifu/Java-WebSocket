@@ -116,7 +116,7 @@ public class Draft_75 extends Draft {
 		response.put( "Upgrade", "WebSocket" );
 		response.put( "Connection", request.getFieldValue( "Connection" ) ); // to respond to a Connection keep alive
 		response.put( "WebSocket-Origin", request.getFieldValue( "Origin" ) );
-		String location = "ws://" + request.getFieldValue( "Host" ) + request.getResourceDescriptor();
+		String location = request.getScheme() + "://" + request.getFieldValue( "Host" ) + request.getResourceDescriptor();
 		response.put( "WebSocket-Location", location );
 		// TODO handle Sec-WebSocket-Protocol and Set-Cookie
 		return response;

@@ -6,4 +6,6 @@ public interface ClientHandshake extends Handshakedata {
 	 * @return the HTTP Request-URI
 	 */
 	public String getResourceDescriptor();
+
+	String getScheme();
 }

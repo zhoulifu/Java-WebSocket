@@ -28,9 +28,9 @@ import org.java_websocket.handshake.ServerHandshakeBuilder;
 public class Draft_76 extends Draft_75 {
 	private boolean failed = false;
 	private static final byte[] closehandshake = { -1, 0 };
-	
+
 	private final Random reuseableRandom = new Random();
-	
+
 
 	public static byte[] createChallenge( String key1, String key2, byte[] key3 ) throws InvalidHandshakeException {
 		byte[] part1 = getPart( key1 );
@@ -159,7 +159,7 @@ public class Draft_76 extends Draft_75 {
 		response.put( "Upgrade", "WebSocket" );
 		response.put( "Connection", request.getFieldValue( "Connection" ) ); // to respond to a Connection keep alive
 		response.put( "Sec-WebSocket-Origin", request.getFieldValue( "Origin" ) );
-		String location = "ws://" + request.getFieldValue( "Host" ) + request.getResourceDescriptor();
+		String location = request.getScheme() + "://" + request.getFieldValue( "Host" ) + request.getResourceDescriptor();
 		response.put( "Sec-WebSocket-Location", location );
 		String key1 = request.getFieldValue( "Sec-WebSocket-Key1" );
 		String key2 = request.getFieldValue( "Sec-WebSocket-Key2" );

@@ -213,6 +213,7 @@ public class WebSocketImpl implements WebSocket {
 								d.setParseMode( role );
 								socketBuffer.reset();
 								Handshakedata tmphandshake = d.translateHandshake( socketBuffer );
+								// TODO set handshakedata's scheme depends on channel's class type
 								if( !( tmphandshake instanceof ClientHandshake ) ) {
 									flushAndClose( CloseFrame.PROTOCOL_ERROR, "wrong http function", false );
 									return false;
